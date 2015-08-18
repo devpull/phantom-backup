@@ -9,3 +9,6 @@ CURL is not for javascript execution. For js execution using phantomjs and caspe
 * phantomjs
 * casperjs
 * curl
+
+## Usage
+```casperjs --cookies-file=cookie.txt casp.js```
