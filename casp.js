@@ -81,8 +81,4 @@ casper.waitForResource(config.url, function() {
     }
 
     this.capture('screen/fill.png');
-}).then(function() {
-    this.wait(5000, function () {
-        this.capture('screen/done.png');
-    });
 }).run();
