@@ -57,13 +57,28 @@ casper.start(config.url, function() {
 
 // wait for page to load
 casper.waitForResource(config.url, function() {
+    this.capture('screen/preform.png');
     this.echo('trying fill form');
 
-    // fill selectors not working with phantomjs v1.9.8 & casperjs v1.1.0-beta3
-    this.fillXPath('form', {
-        '//input[@name="username"]': config.username,
-        '//input[@name="password"]': config.password
-    }, true);
+    // solution from: http://stackoverflow.com/questions/10596417/is-there-a-way-to-get-element-by-xpath-using-javascript-in-selenium-webdriver
+    var myid = this.evaluate(function () {
+        function getElementByXpath(path) {
+            return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        }
+        var elem = getElementByXpath("//*[@id='rTbl']/tbody/tr[1]/td/table/tbody/tr/td[2]/table/tbody/tr/td[4]/b");
+        return elem.innerHTML;
+    });
+
+    // checking if we are logged in or filling form
+    if(myid == config.username) {
+        this.echo('Guess already logged in!');
+    } else {
+        // fill selectors not working with phantomjs v1.9.8 & casperjs v1.1.0-beta3
+        this.fillXPath('form', {
+            '//input[@name="username"]': config.username,
+            '//input[@name="password"]': config.password
+        }, true);
+    }
 
     this.capture('screen/fill.png');
 }).then(function() {
