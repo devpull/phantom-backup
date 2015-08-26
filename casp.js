@@ -52,6 +52,7 @@ casper.on("resource.error", function(resourceError){
 
 // url is set in config
 casper.start(config.url, function() {
+    fs.removeTree('screen'); // clearing screens
     this.echo('Starting.');
 });
 
