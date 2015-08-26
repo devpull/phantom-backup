@@ -9,7 +9,7 @@
 # vars
 TIME=$(date +%H:%M)
 DATE=$(date +%d%m%Y)
-BCKFILE="./bck/kastrylki${DATE}.tar.gz"
+BCKFILE="./kastrylki${DATE}.tar.gz"
 
 # casper
 casperjs --cookies-file=cookie.txt casp.js
@@ -32,6 +32,4 @@ if [[ -e ${BCKFILE} ]]; then
 fi
 wait
 
-#curl -o "$BCKFILE" --limit-rate "3m" -Gvk -d plid="www" -d elid="kastrylki.ru" -d filename="/kastrylki.ru.tgz" -b "ispmgr4=sirius:ru:${TOKEN}" -H "Accept-Encoding: gzip, deflate,  sdch" -H "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.155 Safari/537.36" -H "Connection: keep-alive" -H "Accept: text/html,application/xht ml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" https://client.appletec.ru:1500/mancgi/download
-
-exit 0
+curl -o "$BCKFILE" --limit-rate "3m" -Gvk -d plid="www" -d elid="kastrylki.ru" -d filename="/kastrylki.ru.tgz" -b "ispmgr4=sirius:ru:${TOKEN}" -H "Accept-Encoding: gzip, deflate,  sdch" -H "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.155 Safari/537.36" -H "Connection: keep-alive" -H "Accept: text/html,application/xht ml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" https://client.appletec.ru:1500/mancgi/download
