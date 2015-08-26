@@ -6,10 +6,14 @@
 #trap 'exec 2>&4 1>&3' 0 1 2 3
 #exec 1>>./logs/sh.log 2>&1
 
+if [ -f bck ]; then
+    mkdir bck
+fi
+
 # vars
 TIME=$(date +%H:%M)
 DATE=$(date +%d%m%Y)
-BCKFILE="./kastrylki${DATE}.tar.gz"
+BCKFILE="./bck/kastrylki${DATE}.tar.gz"
 
 # casper
 casperjs --cookies-file=cookie.txt casp.js
