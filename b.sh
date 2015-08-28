@@ -2,20 +2,19 @@
 
 # log
 # from: http://serverfault.com/questions/103501/how-can-i-fully-log-all-bash-scripts-actions
-#exec 3>&1 4>&2
-#trap 'exec 2>&4 1>&3' 0 1 2 3
-#exec 1>>./logs/sh.log 2>&1
+exec 3>&1 4>&2
+trap 'exec 2>&4 1>&3' 0 1 2 3
+exec 1>>./logs/sh.log 2>&1
 
-if [ -f bck ]; then
-    mkdir bck
-fi
+BCK_DIR='~/bck'
+if [[ ! -d ${BCK_DIR} ]]; then mkdir ${BCK_DIR} ; fi
 
 # vars
 TIME=$(date +%H:%M)
 DATE=$(date +%d%m%Y)
-BCKFILE="./bck/kastrylki${DATE}.tar.gz"
+BCKFILE="${BCK_DIR}/kastrylki${DATE}.tar.gz"
 
-# casper
+# casper & phantom loggin in and getting the right number
 casperjs --cookies-file=cookie.txt casp.js
 sleep 15
 
