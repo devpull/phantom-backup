@@ -19,7 +19,9 @@ DATE=$(date +%d%m%Y)
 BCKFILE="${BCK_DIR}/kastrylki${DATE}.tar.gz"
 
 # casper & phantom loggin in and getting the right number
-casperjs --cookies-file=$PWD/cookie.txt $PWD/casp.js
+#casperjs --cookies-file=$PWD/cookie.txt $PWD/casp.js
+# on debian vps worked only with ignored ssl errors
+casperjs --ignore-ssl-errors=true --ssl-protocol=any --cookies-file=cookie.txt casp.js
 sleep 15
 
 # clearing all except matched string
