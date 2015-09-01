@@ -6,7 +6,11 @@ exec 3>&1 4>&2
 trap 'exec 2>&4 1>&3' 0 1 2 3
 exec 1>>./logs/sh.log 2>&1
 
-BCK_DIR='~/bck'
+# conf
+# after this command can use $PWD
+cd "$(dirname "$0")"
+
+BCK_DIR='/root/bck/kastrylki'
 if [[ ! -d ${BCK_DIR} ]]; then mkdir ${BCK_DIR} ; fi
 
 # vars
@@ -15,18 +19,18 @@ DATE=$(date +%d%m%Y)
 BCKFILE="${BCK_DIR}/kastrylki${DATE}.tar.gz"
 
 # casper & phantom loggin in and getting the right number
-casperjs --cookies-file=cookie.txt casp.js
+casperjs --cookies-file=$PWD/cookie.txt $PWD/casp.js
 sleep 15
 
 # clearing all except matched string
 # matched number to separate file
-sed -n 's/.*[ru|en]:\([0-9]*\).*/\1/p' cookie.txt > 'numid.txt'
+sed -n 's/.*[ru|en]:\([0-9]*\).*/\1/p' $PWD/cookie.txt > $PWD/numid.txt
 wait
 
 # token check
-TOKEN=$(<'numid.txt')
+TOKEN=$(<"$PWD/numid.txt")
 if [[ ${TOKEN} -eq 0 ]]; then
-    echo "[$TIME] numid is 0" >> "./logs/$DATE.log"
+    echo "[$TIME] numid is 0" >> "$PWD/logs/$DATE.log"
     exit
 fi
 
