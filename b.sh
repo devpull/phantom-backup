@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# !!! This file needs chmod 755 permissions
+
 # log
 # from: http://serverfault.com/questions/103501/how-can-i-fully-log-all-bash-scripts-actions
 exec 3>&1 4>&2
