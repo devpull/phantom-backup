@@ -3,7 +3,7 @@
 ## Purpose of this
 Hoster refused to provide daily backups and ftp access to them.
 But it is possible to launch backup process from ispmanager-filemanager by GET.
-Backuping from shared hosting by hands was not an option.  
+Backuping from shared hosting by hands was not an option. Reason for using phantomjs & casperjs was because of authentication cookie was produced by js.
 CURL is not for javascript execution. For js execution using phantomjs and casperjs.
 
 ## Flow
