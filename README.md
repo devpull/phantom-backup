@@ -26,4 +26,5 @@ SHELL=/bin/bash
 MAILTO=mymail@some.mail  
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  
    
-0 0 * * * /root/phan_bck/b.sh```
+0 0 * * * /root/phan_bck/b.sh
+```
