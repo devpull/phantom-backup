@@ -1,5 +1,4 @@
 # Backup from ispmanager control panel
----
 
 ## Purpose of this
 Hoster refused to provide daily backups and ftp access to them.
