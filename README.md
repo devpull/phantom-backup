@@ -22,8 +22,9 @@ CURL is not for javascript execution. For js execution using phantomjs and caspe
 * Set chmod 755 permissions for b.sh
 * Set cron:
 
-```SHELL=/bin/bash  
-   MAILTO=greenclever@gmail.com  
-   PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  
+```
+SHELL=/bin/bash  
+MAILTO=mymail@some.mail  
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  
    
-   0 0 * * * /root/phan_bck/b.sh```
+0 0 * * * /root/phan_bck/b.sh```
