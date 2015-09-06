@@ -17,5 +17,13 @@ CURL is not for javascript execution. For js execution using phantomjs and caspe
 * casperjs
 * curl
 
-## Usage
-```casperjs --cookies-file=cookie.txt casp.js```
+## Setup
+* Copy config.example.json to local/config.json and fill credentials.
+* Set chmod 755 permissions for b.sh
+* Set cron:
+
+```SHELL=/bin/bash  
+   MAILTO=greenclever@gmail.com  
+   PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  
+   
+   0 0 * * * /root/phan_bck/b.sh```
